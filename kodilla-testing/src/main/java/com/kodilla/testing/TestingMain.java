@@ -8,10 +8,9 @@ public class TestingMain {
 
         String result = simpleUser.getUsername();
 
-        if (result.equals("theForumUser")){
+        if (result.equals("theForumUser")) {
             System.out.println("Test OK");
-        }
-        else {
+        } else {
             System.out.println("Error !");
         }
         System.out.println();
@@ -19,9 +18,20 @@ public class TestingMain {
 
         Calculator calculator = new Calculator();
         int sumResult = calculator.sum(3, 2);
-        System.out.println("Wynik dodawania " + sumResult);
-        int substractResult = calculator.substract(6, 2);
-        System.out.println("Wynik odejmowania " + substractResult);
+        if (sumResult == 5) {
+            System.out.println("Test dodawania OK");
+        }
+        else {
+            System.out.println("Test dodawania błędny !");
+        }
 
+        int substractResult = calculator.substract(5, 2);
+        if (substractResult == 4){
+            System.out.println("Test odejmowania OK");
+        }
+        else {
+            System.out.println("Test odejmowanie błędny !");
+        }
     }
 }
+
