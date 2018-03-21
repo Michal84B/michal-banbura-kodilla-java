@@ -27,17 +27,18 @@ public class CollectionTestSuite {
         ArrayList<Integer> listNumbers = OddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing " + listNumbers);
         //Then
-        Assert.assertEquals(emptyList, listNumbers);
+        //Assert.assertEquals(emptyList, listNumbers);
+        Assert.assertTrue(listNumbers.isEmpty());
     }
     @Test
     public void testOddNumbersExterminatorNormalList(){
         //Given
         ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(4, 10, 1, 15, 6, 8, 2, 3));
-        ArrayList<Integer> oddList = new ArrayList<Integer>(Arrays.asList(4, 10, 6, 8, 2));
+        ArrayList<Integer> evenList = new ArrayList<Integer>(Arrays.asList(4, 10, 6, 8, 2));
         //When
         ArrayList<Integer> listNumbers = OddNumbersExterminator.exterminate(list);
         System.out.println("Testing " + listNumbers);
         //Then
-        Assert.assertEquals(oddList, listNumbers);
+        Assert.assertEquals(evenList, listNumbers);
     }
 }
