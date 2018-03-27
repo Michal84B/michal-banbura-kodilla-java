@@ -22,4 +22,3 @@ public class WeatherForecast {
         return resultMap;
     }
 }
-}
