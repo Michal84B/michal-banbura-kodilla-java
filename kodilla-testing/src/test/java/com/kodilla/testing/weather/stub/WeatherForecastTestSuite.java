@@ -3,7 +3,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class WeatherForecastTestSuite {
-
         @Test
         public void testCalculateForecastWithStub() {
             //Given
