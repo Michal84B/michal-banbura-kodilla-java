@@ -20,4 +20,5 @@ import org.junit.Test;
             Assert.assertEquals(5, quantityOfSensors);
         }
     }
+}
 
