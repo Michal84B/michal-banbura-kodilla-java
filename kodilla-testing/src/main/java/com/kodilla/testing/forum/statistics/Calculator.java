@@ -6,7 +6,7 @@ public class Calculator {
     int usersQty;
     int postsQty;
     int commentsQty;
-    double avgUserPosts;
+    double avgPostsPerUser;
     double avgCommentsPerUser;
     double avgCommentsPerPost;
 
@@ -14,7 +14,7 @@ public class Calculator {
         this.usersQty = statistics.usersNames().size();
         this.postsQty = statistics.postsCount();
         this.commentsQty = statistics.commentsCount();
-        this.avgUserPosts = (double) postsQty / usersQty;
+        this.avgPostsPerUser = (double) postsQty / usersQty;
         this.avgCommentsPerUser = (double) commentsQty / usersQty;
         this.avgCommentsPerPost = (double) commentsQty / postsQty;
     }
@@ -26,10 +26,10 @@ public class Calculator {
         return postsQty;
     }
     public int getCommentsQty(){
-        return commentsQty();
+        return commentsQty;
     }
-    public double getAvgUserPosts(){
-        return avgUserPosts;
+    public double getAvgPostsPerUser(){
+        return avgPostsPerUser;
     }
 
     public double getAvgCommentsPerUser() {
