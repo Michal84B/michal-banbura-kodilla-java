@@ -111,7 +111,7 @@ public class CalculatorTestSuite {
         Assert.assertEquals(Double.NaN, avgCommentsPerUser, 0.1);
     }
     @Test
-    public void testAvgCommentsPerPost(){
+    public void testAvgCommentsPerPostWhenPostsIs1000AndCommentsIs500AndPostsMoreThanComments(){
         //Given
         when(statisticMock.postsCount()).thenReturn(1000);
         when(statisticMock.commentsCount()).thenReturn(500);
@@ -120,5 +120,49 @@ public class CalculatorTestSuite {
         double avgCommentsPerPost = calculator.getAvgCommentsPerPost();
         //Then
         Assert.assertEquals(0.5, avgCommentsPerPost, 0.1);
+    }
+    @Test
+    public void testAvgCommentsPerPostWhenPostsIs0AndCommentsIs500(){
+        //Given
+        when(statisticMock.postsCount()).thenReturn(0);
+        when(statisticMock.commentsCount()).thenReturn(500);
+        //When
+        calculator.calculateAdvStatistics(statisticMock);
+        double avgCommentsPerPost = calculator.getAvgCommentsPerPost();
+        //Then
+        Assert.assertEquals(Double.POSITIVE_INFINITY, avgCommentsPerPost, 0.1);
+    }
+    @Test
+    public void testAvgCommentsPerPostWhenPostsIs1000AndCommentsIs0(){
+        //Given
+        when(statisticMock.postsCount()).thenReturn(1000);
+        when(statisticMock.commentsCount()).thenReturn(0);
+        //When
+        calculator.calculateAdvStatistics(statisticMock);
+        double avgCommentsPerPost = calculator.getAvgCommentsPerPost();
+        //Then
+        Assert.assertEquals(0.0, avgCommentsPerPost, 0.1);
+    }
+    @Test
+    public void testAvgCommentsPerPostWhenPostsIs0AndCommentsIs0(){
+        //Given
+        when(statisticMock.postsCount()).thenReturn(0);
+        when(statisticMock.commentsCount()).thenReturn(0);
+        //When
+        calculator.calculateAdvStatistics(statisticMock);
+        double avgCommentsPerPost = calculator.getAvgCommentsPerPost();
+        //Then
+        Assert.assertEquals(Double.NaN, avgCommentsPerPost, 0.1);
+    }
+    @Test
+    public void testAvgCommentsPerPostWhenCommentsMoreThanPosts(){
+        //Given
+        when(statisticMock.postsCount()).thenReturn(500);
+        when(statisticMock.commentsCount()).thenReturn(1000);
+        //When
+        calculator.calculateAdvStatistics(statisticMock);
+        double avgCommentsPerPost = calculator.getAvgCommentsPerPost();
+        //Then
+        Assert.assertEquals(2.0, avgCommentsPerPost, 0.1);
     }
 }
