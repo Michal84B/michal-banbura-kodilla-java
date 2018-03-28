@@ -40,4 +40,15 @@ public class CalculatorTestSuite {
         //Then
         Assert.assertEquals(2.5, avgCommentsPerUser, 0.1);
     }
+    @Test
+    public void testAvgCommentsPerPost(){
+        //Given
+        when(statisticMock.postsCount()).thenReturn(1000);
+        when(statisticMock.commentsCount()).thenReturn(500);
+        //When
+        calculator.calculateAdvStatistics(statisticMock);
+        double avgCommentsPerPost = calculator.getAvgCommentsPerPost();
+        //Then
+        Assert.assertEquals(0.5, avgCommentsPerPost, 0.1);
+    }
 }
