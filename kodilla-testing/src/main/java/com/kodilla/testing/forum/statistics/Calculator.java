@@ -43,4 +43,8 @@ public class Calculator {
     public double getAvgCommentsPerPost() {
         return avgCommentsPerPost;
     }
+    public void showStatistics(){
+        System.out.println("Avarge Posts per user: " + avgPostsPerUser + "Avarge comments per user: " + avgCommentsPerUser +
+                "Avarge comments per post: " + avgCommentsPerPost);
+    }
 }
