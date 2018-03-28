@@ -1,14 +1,18 @@
 package com.kodilla.testing.forum.statistics;
 
 public class Calculator {
-    Statistics statistics;
+    private Statistics statistics;
 
-    int usersQty;
-    int postsQty;
-    int commentsQty;
-    double avgPostsPerUser;
-    double avgCommentsPerUser;
-    double avgCommentsPerPost;
+    private int usersQty;
+    private int postsQty;
+    private int commentsQty;
+    private double avgPostsPerUser;
+    private double avgCommentsPerUser;
+    private double avgCommentsPerPost;
+
+   // public Calculator(Statistics statistics) {
+     //   this.statistics = statistics;
+   // }
 
     public void calculateAdvStatistics(Statistics statistics) {
         this.usersQty = statistics.usersNames().size();

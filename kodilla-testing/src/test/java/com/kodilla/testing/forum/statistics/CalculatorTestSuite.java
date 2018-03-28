@@ -6,25 +6,38 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CalculatorTestSuite {
+    Statistics statisticMock;
+    Calculator calculator;
+    List<String> users;
     @Before
     public void before() {
-        Statistics statisticMock = mock(Statistics.class);
-        Calculator calculator = new Calculator();
-        calculator.calculateAdvStatistics(statisticMock);
-        List<String> users = new ArrayList<String>();
-        for(int i=0; i<100; i++){
+        statisticMock = mock(Statistics.class);
+        calculator = new Calculator();
+        users = new ArrayList<String>();
+        for(int i=0; i<200; i++){
             users.add("User Name" +i);
         }
     }
     @Test
     public void testAvgPostsPerUser(){
         //Given
-        when(statisticsMock.username()).thenReturn(users);
-        when(statisticsMock.postCount()).thenReturn(1000);
-        when(statisticsMock.commentsCount()).thenReturn(0);
+        when(statisticMock.usersNames()).thenReturn(users);
+        when(statisticMock.postsCount()).thenReturn(1000);
         //When
+        calculator.calculateAdvStatistics(statisticMock);
         double avgPostsPerUser = calculator.getAvgPostsPerUser();
         //Then
-        Assert.assertEquals(10, avgPostsPerUser);
+        Assert.assertEquals(5.0, avgPostsPerUser, 0.1);
+    }
+    @Test
+    public void testAvgCommentsPerUser(){
+        //Given
+        when(statisticMock.usersNames()).thenReturn(users);
+        when(statisticMock.commentsCount()).thenReturn(500);
+        //When
+        calculator.calculateAdvStatistics(statisticMock);
+        double avgCommentsPerUser = calculator.getAvgCommentsPerUser();
+        //Then
+        Assert.assertEquals(2.5, avgCommentsPerUser, 0.1);
     }
 }
