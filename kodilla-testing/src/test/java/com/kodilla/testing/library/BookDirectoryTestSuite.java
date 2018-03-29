@@ -93,7 +93,7 @@ public class BookDirectoryTestSuite {
         //Given
         LibraryUser user = new LibraryUser("Jan", "Nowak", "65050501020");
         List<Book> resultListOfBooks0 = new ArrayList<Book>();
-        when(libraryDatabaseMock.listBooksInHandsOf("user")).thenReturn(resultListOfBooks0);
+        when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(resultListOfBooks0);
 
         //When
         List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(user);
@@ -106,12 +106,24 @@ public class BookDirectoryTestSuite {
         //Given
         LibraryUser user = new LibraryUser("Jan", "Nowak", "65050501020");
         List<Book> resultListOfBooks1 = generateListOfNBooks(1);
-        when(libraryDatabaseMock.listBooksInHandsOf("user")).thenReturn(resultListOfBooks1);
+        when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(resultListOfBooks1);
 
         //When
         List<Book> theListOfBooks1 = bookLibrary.listBooksInHandsOf(user);
 
         //Then
         assertEquals(1, theListOfBooks1);
+    }
+    @Test
+    public void testListBooksInHandsOf5(){
+        //Given
+        LibraryUser user = new LibraryUser("Jan", "Nowak", "65050501020");
+        List<Book> resultListOfBooks5 = generateListOfNBooks(5);
+        when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(resultListOfBooks5);
+
+        //When
+        List<Book> theListOfBooks5 = bookLibrary.listBooksInHandsOf(user);
+        //Then
+        assertEquals(5, theListOfBooks5);
     }
 }
