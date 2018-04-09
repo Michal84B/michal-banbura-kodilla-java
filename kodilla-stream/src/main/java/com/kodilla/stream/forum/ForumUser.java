@@ -2,6 +2,7 @@ package com.kodilla.stream.forum;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ForumUser {
     private final String username;
