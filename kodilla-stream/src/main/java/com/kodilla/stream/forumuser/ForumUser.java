@@ -7,14 +7,14 @@ public final class ForumUser {
     private final String username;
     private final char male;
     private final LocalDate birthday;
-    private final int posts;
+    private final int postsQty;
 
     public ForumUser(final int userId, final String username, final char male, final LocalDate birthday, final int posts) {
         this.userId = userId;
         this.username = username;
         this.male = male;
         this.birthday = birthday;
-        this.posts = posts;
+        this.postsQty = posts;
     }
 
     public int getUserId() {
@@ -34,6 +34,17 @@ public final class ForumUser {
     }
 
     public int getPosts() {
-        return posts;
+        return postsQty;
+    }
+
+    @Override
+    public String toString() {
+        return "ForumUser{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", male=" + male +
+                ", birthday=" + birthday +
+                ", postsQty=" + postsQty +
+                '}';
     }
 }
