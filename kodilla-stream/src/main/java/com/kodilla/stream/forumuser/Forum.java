@@ -18,4 +18,7 @@ public final class Forum {
         userList.add(new ForumUser(184, "Waldek", 'M',
                 1970, 09, 21, 0));
     }
+    public List<ForumUser> getUserList(){
+        return new ArrayList<>(userList);
+    }
 }
