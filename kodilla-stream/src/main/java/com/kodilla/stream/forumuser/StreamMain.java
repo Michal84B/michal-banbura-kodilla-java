@@ -9,6 +9,8 @@ public class StreamMain {
 
         Map<Integer, ForumUser> resultUserMap = forum.getUserList().stream()
                 .filter(ForumUser -> ForumUser.getSex() == 'M')
+                .filter(ForumUser -> ForumUser.getBirthday().getYear() >= 1998)
+                .filter(ForumUser -> ForumUser.getPosts() >= 1)
                 .collect(Collectors.toMap(ForumUser::getUserId, forumUser -> forumUser));
     }
 }
