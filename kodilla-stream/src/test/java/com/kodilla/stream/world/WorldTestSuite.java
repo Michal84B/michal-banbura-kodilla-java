@@ -1,5 +1,6 @@
 package com.kodilla.stream.world;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -31,8 +32,11 @@ public class WorldTestSuite {
         continents.add(asia);
 
         //When
+        World population = new World(continents);
+        BigDecimal result = new BigDecimal("2679210207");
 
         //Then
+        Assert.assertEquals(population.getPeopleQuantity(), result);
     }
 
 }
