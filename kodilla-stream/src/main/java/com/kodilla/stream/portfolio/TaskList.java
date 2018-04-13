@@ -32,14 +32,10 @@ public final class TaskList {
                 ", name='" + name + '\'' +
                 '}';
     }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (!(o instanceof TaskList)) return false;
         TaskList taskList = (TaskList) o;
-
-        return tasks.equals(taskList.tasks);
+        return name.equals(taskList.name);
     }
 }
