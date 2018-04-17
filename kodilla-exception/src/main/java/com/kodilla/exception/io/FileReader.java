@@ -15,8 +15,9 @@ public class FileReader {
 
         try {
             Stream<String> fileLines = Files.lines(path);
+            fileLines.forEach(System.out::println);
         } catch (IOException e) {
-
+            System.out.println("Oh no! something went wrong!" + e);
         }
     }
 }
