@@ -15,6 +15,8 @@ public class FileReader {
             fileLines.forEach(System.out::println);
         } catch (IOException e) {
             System.out.println("Oh no! something went wrong!" + e);
+        } finally {
+            System.out.println("I am gonna be here... always!");
         }
     }
 }
