@@ -5,12 +5,12 @@ public class ExceptionHandling {
         SecondChallenge secondChallenge = new SecondChallenge();
 
         try {
-           String result = secondChallenge.probablyIWillThrowException(2, 13);
+           String result = secondChallenge.probablyIWillThrowException(1, 13);
             System.out.println(result);
         } catch (Exception e) {
-            System.out.println("Error, try again");
+            System.out.println("Error, 'x' must be =< 2 and >1, 'y' can`t be 1.5");
         } finally {
-            System.out.println("'x' must be =< 2 and >1, 'y' can`t be 1.5");
+            System.out.println("See u next time");
         }
     }
 }
