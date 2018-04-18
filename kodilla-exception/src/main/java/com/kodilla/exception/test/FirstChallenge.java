@@ -22,9 +22,9 @@ public class FirstChallenge {
             double result = firstChallenge.divide(3, 0);
             System.out.println(result);
         } catch (ArithmeticException e) {
-            System.out.println("You can`t divide by 0");
+            System.out.println("You can`t divide by 0. Variable 'b' must be > 0");
         } finally {
-            System.out.println("variable 'b' must be > 0");
+            System.out.println("Finished");
         }
 
     }
