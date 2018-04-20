@@ -3,7 +3,7 @@ package com.kodilla.exception.test;
 import java.util.HashMap;
 
 public class FlightFinder {
-    private HashMap<String, Boolean> airports = new HashMap<String, Boolean>();
+    private HashMap<String, Boolean> airports = new HashMap<>();
 
     public FlightFinder(HashMap<String, Boolean> airports) {
         this.airports = airports;
@@ -13,5 +13,8 @@ public class FlightFinder {
         airports.put("Dublin", false);
         airports.put("Londyn", false);
         airports.put("Nicea", true);
+    }
+    Boolean findFlight(Flight flight){
+        return airports.get(flight.getArrivalAirport());
     }
 }
