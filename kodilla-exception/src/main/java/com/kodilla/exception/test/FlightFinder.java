@@ -17,4 +17,13 @@ public class FlightFinder {
     Boolean findFlight(Flight flight){
         return airports.get(flight.getArrivalAirport());
     }
+
+    public Boolean getFlight(String key) throws RouteNotFoundException {
+        if(airports.containsKey(key)) {
+            return airports.get(key);
+        }
+        else {
+            throw new RouteNotFoundException("Airport not found");
+        }
+    }
 }
