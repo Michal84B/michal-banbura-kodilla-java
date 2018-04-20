@@ -5,8 +5,7 @@ import java.util.HashMap;
 public class FlightFinder {
     private HashMap<String, Boolean> airports = new HashMap<>();
 
-    public FlightFinder(HashMap<String, Boolean> airports) {
-        this.airports = airports;
+    public FlightFinder() {
 
         airports.put("Amsterdam", true);
         airports.put("Barcelona", true);
@@ -14,6 +13,7 @@ public class FlightFinder {
         airports.put("Londyn", false);
         airports.put("Nicea", true);
     }
+
     Boolean findFlight(Flight flight){
         return airports.get(flight.getArrivalAirport());
     }
