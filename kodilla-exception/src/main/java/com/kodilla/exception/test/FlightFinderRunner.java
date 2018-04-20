@@ -7,7 +7,7 @@ public class FlightFinderRunner {
         try {
             flightFinder.getFlight("Londyn");
         } catch(RouteNotFoundException e) {
-            System.out.println("Airport not found, try another airport");
+            System.out.println("Airport not found, try another airport.");
         }
     }
 }
