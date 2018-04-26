@@ -1,16 +1,15 @@
 package com.kodilla.good.patterns.challenges;
 
-final class User {
+public class User {
+
     private final String username;
     private final String firstName;
-    private final String surName;
-    private final String adress;
+    private final String lastName;
 
-    public User(final String username, final String firstName, final String surName, final String adress) {
+    public User(final String username, final String firstName, final String lastName) {
         this.username = username;
         this.firstName = firstName;
-        this.surName = surName;
-        this.adress = adress;
+        this.lastName = lastName;
     }
 
     public String getUsername() {
@@ -21,11 +20,7 @@ final class User {
         return firstName;
     }
 
-    public String getSurName() {
-        return surName;
-    }
-
-    public String getAdress() {
-        return adress;
+    public String getLastName() {
+        return lastName;
     }
 }
