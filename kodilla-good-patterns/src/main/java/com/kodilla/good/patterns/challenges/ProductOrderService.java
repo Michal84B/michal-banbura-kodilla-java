@@ -8,7 +8,7 @@ public class ProductOrderService {
     public ProductOrderService(final EmailService emailService,
                                final RentalService rentalService,
                                final RentalRepository rentalRepository) {
-        this.informationService = informationService;
+        this.emailService = emailService;
         this.rentalService = rentalService;
         this.rentalRepository = rentalRepository;
     }
@@ -18,7 +18,7 @@ public class ProductOrderService {
                 rentRequest.getTo());
 
         if(isRented) {
-            informationService.inform(rentRequest.getUser());
+            emailService.message(rentRequest.getUser());
             rentalRepository.createRental(rentRequest.getUser(), rentRequest.getFrom(), rentRequest.getTo());
             return new RentalDto(rentRequest.getUser(), true);
         } else {
