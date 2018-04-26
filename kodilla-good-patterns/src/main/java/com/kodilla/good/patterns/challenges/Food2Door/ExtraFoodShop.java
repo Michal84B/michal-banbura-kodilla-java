@@ -4,7 +4,7 @@ public class ExtraFoodShop implements Producer {
 
     @Override
     public boolean process(Order order) {
-        System.out.println("You can order here some special food")
+        System.out.println("You can order here some special food");
         return true;
     }
 }
