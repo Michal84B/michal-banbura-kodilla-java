@@ -1,11 +1,11 @@
 package com.kodilla.good.patterns.challenges;
 
 public class ProductOrderService {
-    private InformationService informationService;
+    private EmailService emailService;
     private RentalService rentalService;
     private RentalRepository rentalRepository;
 
-    public ProductOrderService(final InformationService informationService,
+    public ProductOrderService(final EmailService emailService,
                                final RentalService rentalService,
                                final RentalRepository rentalRepository) {
         this.informationService = informationService;
