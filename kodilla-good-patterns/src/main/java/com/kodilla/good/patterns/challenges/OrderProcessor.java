@@ -8,7 +8,7 @@ public class OrderProcessor {
     }
 
     public OrderDto process(final Order order){
-        boolean ordered = orderService.CreateOrder(order.getUser(), order.getProduct());
+        boolean ordered = orderService.createOrder(order.getUser(), order.getProduct());
         return new OrderDto(order.getProduct(), order.getUser(), true);
     }
 }
