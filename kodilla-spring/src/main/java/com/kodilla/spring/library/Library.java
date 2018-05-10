@@ -18,7 +18,7 @@ public final class Library {
         libraryDbController.saveData();
     }
 
-    public void loadToDb() {
+    public void loadFromDb() {
         libraryDbController.loadData();
     }
 }
