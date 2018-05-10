@@ -23,7 +23,7 @@ public final class Calculator {
         return a * b;
     }
 
-    public double dive(double a, double b) {
+    public double div(double a, double b) {
         display.displayValue();
         return a / b;
     }
