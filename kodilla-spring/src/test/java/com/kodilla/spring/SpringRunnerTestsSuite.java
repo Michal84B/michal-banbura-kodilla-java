@@ -2,6 +2,7 @@ package com.kodilla.spring;
 
 import com.kodilla.spring.shape.Circle;
 import com.kodilla.spring.shape.Shape;
+import com.kodilla.spring.shape.Square;
 import com.kodilla.spring.shape.Triangle;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,8 +21,10 @@ public class SpringRunnerTestsSuite {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
         Shape shape = context.getBean(Circle.class);
+
         //When
         String name = shape.getShapeName();
+
         //Then
         Assert.assertEquals("This is a circle.", name);
     }
@@ -31,10 +34,25 @@ public class SpringRunnerTestsSuite {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
         Shape shape = context.getBean(Triangle.class);
+
         //When
         String name = shape.getShapeName();
+
         //Then
         Assert.assertEquals("This is a triangle.", name);
+    }
+
+    @Test
+    public void testSquareLoadedIntoContainer() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Shape shape = context.getBean(Square.class);
+
+        //When
+        String name = shape.getShapeName();
+
+        //Then
+        Assert.assertEquals("This is a square.", name);
     }
 
 }
