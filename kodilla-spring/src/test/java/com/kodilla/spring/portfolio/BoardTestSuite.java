@@ -20,7 +20,9 @@ public class BoardTestSuite {
         board.getInProgressList().addTask("Learning Java");
 
         //When
-
+        String toDoList = board.getToDoList().getTask(0);
+        String doneList = board.getDoneList().getTask(0);
+        String inProgressList = board.getInProgressList().getTask(0);
 
         //Then
     }
