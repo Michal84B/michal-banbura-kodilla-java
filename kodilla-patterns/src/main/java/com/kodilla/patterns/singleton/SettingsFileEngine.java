@@ -1,14 +1,10 @@
 package com.kodilla.patterns.singleton;
 
 public class SettingsFileEngine {
-    private SettingsFileEngine settingsFileEngineInstance = null;
+    private static SettingsFileEngine settingsFileEngineInstance = null;
     private String fileName = "";
 
     private SettingsFileEngine() {
-    }
-
-    public String getFileName() {
-        return fileName;
     }
 
     public static SettingsFileEngine getInstance() {
@@ -20,6 +16,10 @@ public class SettingsFileEngine {
             }
         }
         return settingsFileEngineInstance;
+    }
+
+    public String getFileName() {
+        return fileName;
     }
 
     public void open(final String fileName) {
