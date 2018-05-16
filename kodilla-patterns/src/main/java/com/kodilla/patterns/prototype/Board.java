@@ -3,11 +3,15 @@ package com.kodilla.patterns.prototype;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Board {
-    final private String name;
+public class Board extends Prototype {
+    private String name;
     final private Set<TasksList> lists = new HashSet<>();
 
     public Board(String name) {
+        this.name = name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -26,5 +30,8 @@ public class Board {
             s = s + list.toString() + "\n";
         }
         return s;
+    }
+    public Board shallowCopy() throws CloneNotSupportedException {
+        return (Board)super.clone();
     }
 }
