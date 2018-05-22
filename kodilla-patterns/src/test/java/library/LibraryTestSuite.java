@@ -28,12 +28,21 @@ public class LibraryTestSuite {
             System.out.println(e);
         }
 
+        Library deepClonedLibrary = null;
+        try {
+            deepClonedLibrary = library.deepCopy();
+            deepClonedLibrary.setName("DeepCopy");
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
+
         System.out.println(library);
         System.out.println(clonedLibrary);
+        System.out.println(deepClonedLibrary);
 
-        //When
-        //Then
+        //When&Then
         Assert.assertEquals(3, library.getBooks().size());
         Assert.assertEquals(3, clonedLibrary.getBooks().size());
+        Assert.assertEquals(3, deepClonedLibrary.getBooks().size());
     }
 }
