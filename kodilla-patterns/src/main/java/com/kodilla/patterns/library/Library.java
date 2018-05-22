@@ -18,4 +18,12 @@ public final class Library {
     public Set<Book> getBooks() {
         return books;
     }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "name='" + name + '\'' +
+                ", books=" + books +
+                '}';
+    }
 }
