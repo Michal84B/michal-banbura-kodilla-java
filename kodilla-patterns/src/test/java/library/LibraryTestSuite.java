@@ -20,10 +20,20 @@ public class LibraryTestSuite {
         library.getBooks().add(book2);
         library.getBooks().add(book3);
 
+        Library clonedLibrary = null;
+        try {
+            clonedLibrary = library.shallowCopy();
+            clonedLibrary.setName("ShallowCopy");
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
+
         System.out.println(library);
+        System.out.println(clonedLibrary);
+
         //When
         //Then
         Assert.assertEquals(3, library.getBooks().size());
-
+        Assert.assertEquals(3, clonedLibrary.getBooks().size());
     }
 }
