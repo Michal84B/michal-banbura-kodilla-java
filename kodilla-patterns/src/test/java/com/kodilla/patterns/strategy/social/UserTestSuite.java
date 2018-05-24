@@ -21,4 +21,17 @@ public class UserTestSuite {
         Assert.assertEquals("Twitter", miecioMedia);
         Assert.assertEquals("Snapchat", sebixMedia);
     }
+
+    @Test
+    public void testIndividualSharingStrategy() {
+        //Given
+        User henio = new Millenials("Henryk");
+
+        //When
+        henio.socialChanger(new TwiterPublisher());
+        String henioMedia = henio.sharePost();
+
+        //Then
+        Assert.assertEquals("Twitter", henioMedia);
+    }
 }
