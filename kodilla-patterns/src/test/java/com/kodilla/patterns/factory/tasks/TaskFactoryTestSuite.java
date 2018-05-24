@@ -29,4 +29,16 @@ public class TaskFactoryTestSuite {
         //Then
         Assert.assertEquals("Paint car element", pantingTask.getTaskName());
     }
+
+    @Test
+    public void testFactoryDrivingTask() {
+        //Given
+        TaskFactory factory = new TaskFactory();
+
+        //When
+        Task drivingTask = factory.makeTask(TaskFactory.DRIVING);
+
+        //Then
+        Assert.assertEquals("Drive vehicle", drivingTask.getTaskName());
+    }
 }
