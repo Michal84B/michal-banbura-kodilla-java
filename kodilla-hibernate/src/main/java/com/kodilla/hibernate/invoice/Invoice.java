@@ -22,7 +22,7 @@ public class Invoice {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "INVOICE_ID", unique = true)
     public int getId() {
         return id;
     }
@@ -51,7 +51,7 @@ public class Invoice {
         return items;
     }
 
-    private void setItems(List<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 }

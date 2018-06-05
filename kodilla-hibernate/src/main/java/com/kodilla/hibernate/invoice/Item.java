@@ -27,16 +27,16 @@ public class Item {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "ITEM_ID", unique = true)
     public int getId() {
         return id;
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
@@ -52,7 +52,7 @@ public class Item {
         return price;
     }
 
-    private void setPrice(BigDecimal price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -62,7 +62,7 @@ public class Item {
         return quantity;
     }
 
-    private void setQuantity(int quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -72,11 +72,11 @@ public class Item {
         return value;
     }
 
-    private void setValue(BigDecimal value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
