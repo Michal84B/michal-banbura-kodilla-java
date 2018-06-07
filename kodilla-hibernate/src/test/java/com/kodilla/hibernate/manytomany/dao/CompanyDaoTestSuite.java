@@ -51,17 +51,15 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //Then
-        Assert.assertNotEquals(0, softwareMachineId);
-        Assert.assertNotEquals(0, dataMaestersId);
-        Assert.assertNotEquals(0, greyMatterId);
-
-        //CleanUp
         try {
+            Assert.assertNotEquals(0, softwareMachineId);
+            Assert.assertNotEquals(0, dataMaestersId);
+            Assert.assertNotEquals(0, greyMatterId);
+        } finally {
+            //CleanUp
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
-        } catch (Exception e) {
-            //do nothing
         }
     }
 
@@ -99,15 +97,13 @@ public class CompanyDaoTestSuite {
         List<Employee> employees = employeeDao.retrieveEmployeesWithSpecifiedLastname("Smith");
 
         //Then
-        Assert.assertNotEquals(0, employees.size());
-
-        //CleanUp
         try {
+            Assert.assertNotEquals(0, employees.size());
+        } finally {
+            //CleanUp
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
-        } catch (Exception e) {
-            //do nothing
         }
     }
 
@@ -145,15 +141,13 @@ public class CompanyDaoTestSuite {
         List<Company> companies = companyDao.retrieveCompanyByThreeFirstLetters("Sof");
 
         //Then
-        Assert.assertNotEquals(0, companies.size());
-
-        //CleanUp
         try {
+            Assert.assertNotEquals(0, companies.size());
+        } finally {
+            //CleanUp
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
-        } catch (Exception e) {
-            //do nothing
         }
     }
 }
