@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -20,6 +21,7 @@ public class CompanyDaoTestSuite {
     EmployeeDao employeeDao;
 
     @Test
+    @Transactional
     public void testSaveManyToMany() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
@@ -51,19 +53,14 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter.getId();
 
         //Then
-        try {
-            Assert.assertNotEquals(0, softwareMachineId);
-            Assert.assertNotEquals(0, dataMaestersId);
-            Assert.assertNotEquals(0, greyMatterId);
-        } finally {
-            //CleanUp
-            companyDao.delete(softwareMachineId);
-            companyDao.delete(dataMaestersId);
-            companyDao.delete(greyMatterId);
-        }
+        Assert.assertNotEquals(0, softwareMachineId);
+        Assert.assertNotEquals(0, dataMaestersId);
+        Assert.assertNotEquals(0, greyMatterId);
     }
 
+
     @Test
+    @Transactional
     public void testRetrieveEmployeesWithSpecifiedLastname() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
@@ -97,17 +94,12 @@ public class CompanyDaoTestSuite {
         List<Employee> employees = employeeDao.retrieveEmployeesWithSpecifiedLastname("Smith");
 
         //Then
-        try {
-            Assert.assertNotEquals(0, employees.size());
-        } finally {
-            //CleanUp
-            companyDao.delete(softwareMachineId);
-            companyDao.delete(dataMaestersId);
-            companyDao.delete(greyMatterId);
-        }
+
+        Assert.assertNotEquals(0, employees.size());
     }
 
     @Test
+    @Transactional
     public void testRetrieveCompanyByThreeFirstLetters() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
@@ -141,13 +133,6 @@ public class CompanyDaoTestSuite {
         List<Company> companies = companyDao.retrieveCompanyByThreeFirstLetters("Sof");
 
         //Then
-        try {
-            Assert.assertNotEquals(0, companies.size());
-        } finally {
-            //CleanUp
-            companyDao.delete(softwareMachineId);
-            companyDao.delete(dataMaestersId);
-            companyDao.delete(greyMatterId);
-        }
+        Assert.assertNotEquals(0, companies.size());
     }
 }
