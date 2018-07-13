@@ -6,9 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@NamedQuery(
+/*@NamedQuery(
         name = "Employee.retrieveEmployeesWithSpecifiedLastname",
         query = "FROM Employee WHERE lastname = :LASTNAME"
+)*/
+@NamedQuery(
+        name = "Employee.retrieveEmployeesByPartOfName",
+        query = "FROM Employee WHERE lastname LIKE :PartOfEmployeeLastName"
 )
 @Entity
 @Table(name = "EMPLOYEES")
