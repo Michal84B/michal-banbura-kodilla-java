@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
+import com.kodilla.hibernate.manytomany.Employee;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import org.junit.Assert;
@@ -38,6 +39,24 @@ public class FacadeTestSuite {
         //Then
         Assert.assertEquals(3, companyByPartOfName.size());
         //CleanUp
+        companyDao.deleteAll();
+    }
+    @Test
+    @Transactional
+    public void testRetrieveEmployeesByPartOfName() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+        employeeDao.save(johnSmith);
+        employeeDao.save(stephanieClarckson);
+        employeeDao.save(lindaKovalsky);
+        //When
+        List<Employee> employeesByPartOfName = facade.retrieveEmployeesByPartOfName("it");
+        //Then
+        Assert.assertEquals(1, employeesByPartOfName.size());
+        //CleanUp
+        employeeDao.deleteAll();
         companyDao.deleteAll();
     }
 }
