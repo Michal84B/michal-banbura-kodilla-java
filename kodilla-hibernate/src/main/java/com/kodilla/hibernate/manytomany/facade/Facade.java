@@ -16,10 +16,10 @@ public final class Facade {
     @Autowired
     private EmployeeDao employeeDao;
 
-    public List<Company> retriveCompanyByPartOfName (String partOfCompanyName) {
-        return companyDao.retriveCompanyByPartOfName("%" + partOfCompanyName + "%");
+    public List<Company> retrieveCompanyByPartOfName (String partOfCompanyName) {
+        return companyDao.retrieveCompanyByPartOfName("%" + partOfCompanyName + "%");
     }
     public List<Employee> retrieveEmployeesByPartOfName (String partOfEmployeeLastName) {
-        return employeeDao.retrieveEmployeesByPartOfName("%" + partOfEmployeeLastName);
+        return employeeDao.retrieveEmployeesByPartOfName("%" + partOfEmployeeLastName + "%");
     }
 }

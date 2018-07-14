@@ -58,7 +58,7 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, greyMatterId);
     }
 
-
+/*
     @Test
     @Transactional
     public void testRetrieveEmployeesWithSpecifiedLastname() {
@@ -97,7 +97,7 @@ public class CompanyDaoTestSuite {
 
         Assert.assertNotEquals(0, employees.size());
     }
-
+*/
     @Test
     @Transactional
     public void testRetrieveCompanyByThreeFirstLetters() {
