@@ -6,12 +6,12 @@ import java.util.List;
 public class Homework implements HomeworkObservable{
     private final List<HomeworkObserver> homeworkObservers;
     private final List<String> tasks;
-    private final String studentName;
+    private final String name;
 
-    public Homework(String studentName) {
+    public Homework(String name) {
         homeworkObservers = new ArrayList<>();
         tasks = new ArrayList<>();
-        this.studentName = studentName;
+        this.name = name;
     }
     public void addTask(String task) {
         tasks.add(task);
@@ -34,7 +34,7 @@ public class Homework implements HomeworkObservable{
     public List<String> getTasks() {
         return tasks;
     }
-    public String getStudentName() {
-        return studentName;
+    public String getName() {
+        return name;
     }
 }

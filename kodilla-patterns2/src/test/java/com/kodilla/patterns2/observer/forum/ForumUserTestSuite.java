@@ -24,7 +24,7 @@ public class ForumUserTestSuite {
         javaHelpForum.addPost("Why while? Is it better?");
         javaToolsForum.addPost("When I try to log in I got 'bad credentials' message");
         //Then
-        assertEquals(3,johnSmith.getUpdateCount());;
+        assertEquals(3,johnSmith.getUpdateCount());
         assertEquals(2,ivoneEscobar.getUpdateCount());
         assertEquals(5,jessiePinkman.getUpdateCount());
     }
